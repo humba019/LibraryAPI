@@ -1,5 +1,7 @@
 package br.com.system.crud.library.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +16,8 @@ public class Atendente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
+	@JsonProperty("nome_completo")
 	private String nomeCompleto;
 	
 	private String cpf;

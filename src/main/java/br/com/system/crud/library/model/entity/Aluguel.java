@@ -1,5 +1,7 @@
 package br.com.system.crud.library.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
@@ -16,10 +18,12 @@ public class Aluguel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	private LocalDate dataAdesao;
-	
-	private LocalDate dataEntrega;
+
+	@JsonProperty("data_adesao")
+	private String dataAdesao;
+
+	@JsonProperty("data_entrega")
+	private String dataEntrega;
 	
 	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "id_fk_atendente",	referencedColumnName = "id")
@@ -34,9 +38,8 @@ public class Aluguel {
     private Livro livro;
 
 	public Aluguel() {}
-	
-	public Aluguel(Long id, LocalDate dataAdesao, LocalDate dataEntrega, Atendente atendente, Leitor leitor,
-			Livro livro) {
+
+	public Aluguel(Long id, String dataAdesao, String dataEntrega, Atendente atendente, Leitor leitor, Livro livro) {
 		this.id = id;
 		this.dataAdesao = dataAdesao;
 		this.dataEntrega = dataEntrega;
@@ -53,19 +56,19 @@ public class Aluguel {
 		this.id = id;
 	}
 
-	public LocalDate getDataAdesao() {
+	public String getDataAdesao() {
 		return dataAdesao;
 	}
 
-	public void setDataAdesao(LocalDate dataAdesao) {
+	public void setDataAdesao(String dataAdesao) {
 		this.dataAdesao = dataAdesao;
 	}
 
-	public LocalDate getDataEntrega() {
+	public String getDataEntrega() {
 		return dataEntrega;
 	}
 
-	public void setDataEntrega(LocalDate dataEntrega) {
+	public void setDataEntrega(String dataEntrega) {
 		this.dataEntrega = dataEntrega;
 	}
 
@@ -91,6 +94,5 @@ public class Aluguel {
 
 	public void setLivro(Livro livro) {
 		this.livro = livro;
-	}	
-	
+	}
 }

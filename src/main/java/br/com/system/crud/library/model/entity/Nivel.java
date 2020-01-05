@@ -4,14 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-/**
- * 
- * 
- * @author humbe
- * Obs: Torcar o nome 'Prateleira' para 'Nivel'
- */
+
 @Entity
-public class Prateleira {
+public class Nivel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,9 +14,9 @@ public class Prateleira {
 	
 	private String descricao;
 
-	public Prateleira() {}
+	public Nivel() {}
 
-	public Prateleira(Long id, String descricao) {
+	public Nivel(Long id, String descricao) {
 		this.id = id;
 		this.descricao = descricao;
 	}

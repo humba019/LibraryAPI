@@ -35,10 +35,11 @@ public class LeitorController {
 
 		leitorService.newReader(leitor);
 		
-		LeitorResponse readerResponse =  new LeitorResponse();
-		readerResponse.setIdLeitor(leitor.getId());
-		readerResponse.setCpf(leitor.getCpf());
-		readerResponse.setNomeCompleto(leitor.getNomeCompleto());
+		LeitorResponse readerResponse =  new LeitorResponse(
+				leitor.getId(),
+				leitor.getCpf(),
+				leitor.getNomeCompleto()
+		);
 		
 		return ResponseEntity.ok(readerResponse);
 	}
@@ -57,9 +58,9 @@ public class LeitorController {
 		
 		try {
 			readers.forEach(reader -> readerResponseList.add( new LeitorResponse(
-												reader.getId(), 
-												reader.getCpf(), 
-												reader.getNomeCompleto())));
+					reader.getId(),
+					reader.getCpf(),
+					reader.getNomeCompleto())));
 			
 			return ResponseEntity.ok(readerResponseList);
 		}catch(ObjetoInexistenteException obj) {

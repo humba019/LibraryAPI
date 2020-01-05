@@ -18,16 +18,16 @@ public class Estante {
 	private String descricao;
 
 	@ManyToOne(cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "id_fk_prateleira",	referencedColumnName = "id")
-    private Prateleira prateleira;
+	@JoinColumn(name = "id_fk_nivel",	referencedColumnName = "id")
+    private Nivel nivel;
 
 	public Estante() {}
 
-	public Estante(Long id, String descricao, Prateleira prateleira) {
+	public Estante(Long id, String descricao, Nivel nivel) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
-		this.prateleira = prateleira;
+		this.nivel = nivel;
 	}
 
 	public Long getId() {
@@ -46,12 +46,12 @@ public class Estante {
 		this.descricao = descricao;
 	}
 
-	public Prateleira getPrateleira() {
-		return prateleira;
+	public Nivel getNivel() {
+		return nivel;
 	}
 
-	public void setPrateleira(Prateleira prateleira) {
-		this.prateleira = prateleira;
+	public void setNivel(Nivel nivel) {
+		this.nivel = nivel;
 	}	
 	
 }

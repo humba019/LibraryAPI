@@ -1,5 +1,7 @@
 package br.com.system.crud.library.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -15,14 +17,16 @@ public class Taxa {
 	private Long id;
 	
 	private String valor;
-	
-	private LocalDate dataEmissao;
-	
-	private LocalDate dataDebito;
+
+	@JsonProperty("data_emissao")
+	private String dataEmissao;
+
+	@JsonProperty("data_debito")
+	private String dataDebito;
 
 	public Taxa() {}
 
-	public Taxa(Long id, String valor, LocalDate dataEmissao, LocalDate dataDebito) {
+	public Taxa(Long id, String valor, String dataEmissao, String dataDebito) {
 		this.id = id;
 		this.valor = valor;
 		this.dataEmissao = dataEmissao;
@@ -45,19 +49,19 @@ public class Taxa {
 		this.valor = valor;
 	}
 
-	public LocalDate getDataEmissao() {
+	public String getDataEmissao() {
 		return dataEmissao;
 	}
 
-	public void setDataEmissao(LocalDate dataEmissao) {
+	public void setDataEmissao(String dataEmissao) {
 		this.dataEmissao = dataEmissao;
 	}
 
-	public LocalDate getDataDebito() {
+	public String getDataDebito() {
 		return dataDebito;
 	}
 
-	public void setDataDebito(LocalDate dataDebito) {
+	public void setDataDebito(String dataDebito) {
 		this.dataDebito = dataDebito;
 	}
 	
